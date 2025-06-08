@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Tables</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: right;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        caption {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>טבלאות API</h1>
+    
+    <!-- User Table -->
+    <table>
+        <caption>טבלת API של משתמשים</caption>
+        <thead>
+            <tr>
+                <th>CRUD</th>
+                <th>כתובת</th>
+                <th>פרמטרים</th>
+                <th>Body</th>
+                <th>מה עושה</th>
+                <th>איזה סוגי שגיאות יכולות לחזור</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET</td>
+                <td>Api/user</td>
+                <td>-</td>
+                <td>-</td>
+                <td>מחזיר את כל המשתמשים</td>
+                <td>400: שגיאה כללית בשרת</td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>Api/user/id</td>
+                <td>id</td>
+                <td>-</td>
+                <td>מחזיר משתמש לפי מזהה</td>
+                <td>404: משתמש לא נמצא, 400: מזהה לא חוקי</td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td>Api/user/id</td>
+                <td>שדות לעדכון</td>
+                <td>-</td>
+                <td>מעדכן משתמש לפי מזהה</td>
+                <td>404: משתמש לא נמצא, נתונים לא חוקיים, 400: בעיה בשרת</td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td>Api/user/Update_password</td>
+                <td>email, newPassword</td>
+                <td>-</td>
+                <td>עדכון סיסמא</td>
+                <td>404: אימייל לא נמצא, 400: בעיה בשרת</td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>Api/user</td>
+                <td>phone, email, username, password</td>
+                <td>-</td>
+                <td>הוספת משתמש</td>
+                <td>404: נתונים חסרים, 400: בעיה בשרת</td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>Api/user/login</td>
+                <td>username, password</td>
+                <td>-</td>
+                <td>שליפת משתמש לפי שם וסיסמא</td>
+                <td>404: שם משתמש או סיסמא לא נכונים, 400: בעיה בשרת</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Room Table -->
+    <table>
+        <caption>טבלת API של חדרים</caption>
+        <thead>
+            <tr>
+                <th>CRUD</th>
+                <th>כתובת</th>
+                <th>פרמטרים</th>
+                <th>Body</th>
+                <th>מה עושה</th>
+                <th>איזה סוגי שגיאות יכולות לחזור</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET</td>
+                <td>Api/room/</td>
+                <td>-</td>
+                <td>-</td>
+                <td>מחזירה את כל החדרים</td>
+                <td>400: שגיאה כללית בשרת</td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>Api/room/id</td>
+                <td>id</td>
+                <td>-</td>
+                <td>מחזירה חדר לפי מספר מזהה</td>
+                <td>404: חדר לא נמצא, 400: מזהה לא חוקי</td>
+            </tr>
+            <tr>
+                <td>DELETE</td>
+                <td>Api/room/id</td>
+                <td>id</td>
+                <td>-</td>
+                <td>מחיקת חדר לפי מספר מזהה</td>
+                <td>404: חדר לא נמצא, 400: מזהה לא חוקי</td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td>Api/room/id</td>
+                <td>num, numBads</td>
+                <td>-</td>
+                <td>עדכון חדר לפי מזהה</td>
+                <td>404: חדר לא נמצא, נתונים לא חוקיים, 400: בעיה בשרת</td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>Api/room</td>
+                <td>num, numBads</td>
+                <td>-</td>
+                <td>הוספת חדר</td>
+                <td>404: נתונים חסרים, ערכים לא חוקיים, 400: בעיה בשרת</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Invitation Table -->
+    <table>
+        <caption>טבלת API של הזמנות</caption>
+        <thead>
+            <tr>
+                <th>CRUD</th>
+                <th>כתובת</th>
+                <th>פרמטרים</th>
+                <th>Body</th>
+                <th>מה עושה</th>
+                <th>איזה סוגי שגיאות יכולות לחזור</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET</td>
+                <td>Api/invitations</td>
+                <td>-</td>
+                <td>-</td>
+                <td>מחזיר את כל ההזמנות</td>
+                <td>400: שגיאה כללית בעת שליפת ההזמנות</td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>Api/invitations/userid</td>
+                <td>userid</td>
+                <td>-</td>
+                <td>מחזיר את כל ההזמנות לפי מזהה של משתמש</td>
+                <td>400: שגיאה כללית בעת שליפת ההזמנות לפי מזהה משתמש</td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td>Api/invitations/id/complate</td>
+                <td>invitationId</td>
+                <td>-</td>
+                <td>עדכון סטטוס הזמנה ל-isFinish: true</td>
+                <td>400: חסר פרמטר invitationId, 404: הזמנה לא נמצאה, 500: שגיאה כללית</td>
+            </tr>
+            <tr>
+                <td>DELETE</td>
+                <td>Api/invitations/id</td>
+                <td>invitationId</td>
+                <td>-</td>
+                <td>מחיקת הזמנה</td>
+                <td>400: חסר פרמטר invitationId, 404: הזמנה לא נמצאה, 500: שגיאה כללית</td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>Api/invitations</td>
+                <td>userId, rooms</td>
+                <td>-</td>
+                <td>הוספת הזמנה</td>
+                <td>404: חסרים פרמטרים userId או rooms, 404: משתמש לא קיים, 404: חדר לא קיים, 400: חדר תפוס, 400: שגיאה כללית</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html
