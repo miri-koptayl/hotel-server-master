@@ -35,7 +35,7 @@ export const addUserSignUp = async (req, res) => {
         await data.save();
         data.token = jwtt(data);
         let { username:xxx, _id, token, role:rrr,password:sss, ...x } = data;
-        return res.json({ role:rrr, username:xxx, _id, token });
+        return res.json({ role:rrr, username:xxx, _id, token ,email});
     } catch (err) {
         console.log("err", err);
         res.status(400).json({ title: "error cannot add", message: err.message });
